@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Heading />
       <SearchBar setSearchTerm={setSearchTerm} />
-      <SimpleMapPage />
+      <SimpleMapPage center={[59.938043, 30.337157]} zoom={9} />
       <EventList searchTerm={searchTerm} />
     </div>
   );
