@@ -14,11 +14,6 @@ const EventList = ({ searchTerm }) => {
       })
       .then((data) => {
         eventListItemsState(data._embedded.events);
-        //console.log(data);
-        console.log(
-          data._embedded.events[0]._embedded.venues[0].location.latitude,
-          data._embedded.events[0]._embedded.venues[0].location.longitude
-        );
       });
   }, [searchTerm]);
   return (
