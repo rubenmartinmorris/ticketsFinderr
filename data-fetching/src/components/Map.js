@@ -1,45 +1,45 @@
-import React, { PropTypes, Component } from "react/addons";
-import shouldPureComponentUpdate from "react-pure-render/function";
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
+import './Map.css';
+import { GiTicket } from 'react-icons/gi';
 
-import GoogleMap from "google-map-react";
-import MyGreatPlace from "./my_great_place.jsx";
+const AnyReactComponent = () => (
+  <div>{<GiTicket className='map-ticket' />}</div>
+);
 
-export default class SimpleMapPage extends Component {
-  static propTypes = {
-    center: PropTypes.array,
-    zoom: PropTypes.number,
-    greatPlaceCoords: PropTypes.any,
+export default function Map({ eventListItems }) {
+  const defaultProps = {
+    center: {
+      lat: 53.4819712,
+      lng: -2.2579737,
+    },
+    zoom: 8,
   };
 
-  static defaultProps = {
-    center: [59.938043, 30.337157],
-    zoom: 9,
-    greatPlaceCoords: { lat: 59.724465, lng: 30.080121 },
-  };
-
-  shouldComponentUpdate = shouldPureComponentUpdate;
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <GoogleMap
-        apiKey={"AIzaSyDyxKk54V_yJIubn_d2mBpJCu_E99tamyg"} // set if you need stats etc ...
-        center={this.props.center}
-        zoom={this.props.zoom}
+  return (
+    // Important! Always set the container height explicitly
+    <div className='map-map'>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: 'AIzaSyBsrxHP6g8cX2w1SoNZ9RsuMX8xeqv9bpQ' }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
       >
-        <MyGreatPlace
-          lat={59.955413}
-          lng={30.337844}
-          text={"A"} /* Kreyser Avrora */
-        />
-        <MyGreatPlace
-          {...this.props.greatPlaceCoords}
-          text={"B"} /* road circle */
-        />
-      </GoogleMap>
-    );
-  }
+        {eventListItems.map((item) => {
+          //console.log('------>', item._embedded.venues[0].location.latitude);
+          //console.log('------>', item._embedded.venues[0].location.longitude);
+
+          return (
+            <AnyReactComponent
+              lat={item._embedded.venues[0].location.latitude}
+              lng={item._embedded.venues[0].location.longitude}
+              text={''}
+            />
+          );
+        })}
+
+        <AnyReactComponent lat={9.99835602} lng={77.01502627} text={''} />
+        <AnyReactComponent lat={11.99835602} lng={77.01502627} text={''} />
+      </GoogleMapReact>
+    </div>
+  );
 }

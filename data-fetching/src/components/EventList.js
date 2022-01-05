@@ -1,5 +1,6 @@
-import { Event } from "./Event";
-import { useState, useEffect } from "react";
+import { Event } from './Event';
+import { useState, useEffect } from 'react';
+import Map from './Map';
 
 const EventList = ({ searchTerm }) => {
   const [eventListItems, eventListItemsState] = useState([]);
@@ -13,7 +14,7 @@ const EventList = ({ searchTerm }) => {
       })
       .then((data) => {
         eventListItemsState(data._embedded.events);
-        console.log(data);
+        //console.log(data);
         console.log(
           data._embedded.events[0]._embedded.venues[0].location.latitude,
           data._embedded.events[0]._embedded.venues[0].location.longitude
@@ -23,6 +24,7 @@ const EventList = ({ searchTerm }) => {
   return (
     <div>
       <ul>
+        <Map eventListItems={eventListItems} />
         {eventListItems.map((item) => {
           return <Event item={item} />;
         })}
