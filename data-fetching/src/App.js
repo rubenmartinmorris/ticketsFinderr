@@ -3,7 +3,7 @@ import { Heading } from "./components/Heading";
 import SearchBar from "./components/SearchBar";
 import EventList from "./components/EventList";
 import { useState } from "react";
-import Map from "./components/Map";
+import SimpleMapPage from "./components/Map";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Heading />
       <SearchBar setSearchTerm={setSearchTerm} />
-      <Map center={[59.938043, 30.337157]} zoom={9} />
+      <SimpleMapPage />
       <EventList searchTerm={searchTerm} />
     </div>
   );

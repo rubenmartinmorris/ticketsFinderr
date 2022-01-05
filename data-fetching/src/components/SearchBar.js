@@ -1,13 +1,13 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
 const SearchBar = ({ setSearchTerm }) => {
-  const [search, setSearchState] = useState('');
+  const [search, setSearchState] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchTerm(search);
 
-    setSearchState('');
+    setSearchState("");
   };
   const handleChange = (event) => {
     const { value } = event.target;
@@ -16,7 +16,7 @@ const SearchBar = ({ setSearchTerm }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input type='text' name='' id='' onChange={handleChange} value={search} />
+      <input type="text" onChange={handleChange} value={search} />
       <button>Search</button>
     </form>
   );
