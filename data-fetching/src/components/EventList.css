@@ -1,0 +1,10 @@
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#events {
+  width: 50vw;
+  overflow: auto;
+  height: 350px;
+}

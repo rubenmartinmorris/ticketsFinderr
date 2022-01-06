@@ -13,7 +13,7 @@ export default function Map({ eventListItems }) {
       lat: 53.4819712,
       lng: -2.2579737,
     },
-    zoom: 8,
+    zoom: 5,
   };
 
   return (
@@ -36,9 +36,6 @@ export default function Map({ eventListItems }) {
             />
           );
         })}
-
-        <AnyReactComponent lat={9.99835602} lng={77.01502627} text={''} />
-        <AnyReactComponent lat={11.99835602} lng={77.01502627} text={''} />
       </GoogleMapReact>
     </div>
   );

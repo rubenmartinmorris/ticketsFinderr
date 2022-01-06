@@ -8,9 +8,13 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   return (
     <div className='App'>
-      <Heading />
+      <Heading className='Heading' />
       <SearchBar setSearchTerm={setSearchTerm} />
-      <EventList searchTerm={searchTerm} />
+      {searchTerm ? (
+        <div className='searched'>
+          <EventList searchTerm={searchTerm} />
+        </div>
+      ) : null}
     </div>
   );
 }

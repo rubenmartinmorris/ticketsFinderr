@@ -1,6 +1,7 @@
 import { Event } from './Event';
 import { useState, useEffect } from 'react';
 import Map from './Map';
+import './EventList.css';
 
 const EventList = ({ searchTerm }) => {
   const [eventListItems, eventListItemsState] = useState([]);
@@ -17,9 +18,9 @@ const EventList = ({ searchTerm }) => {
       });
   }, [searchTerm]);
   return (
-    <div>
-      <ul>
-        <Map eventListItems={eventListItems} />
+    <div className='bottom'>
+      <Map eventListItems={eventListItems} />
+      <ul className='EventList--ul' id='events'>
         {eventListItems.map((item) => {
           return <Event item={item} />;
         })}

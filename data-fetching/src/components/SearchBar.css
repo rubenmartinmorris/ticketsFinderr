@@ -1,0 +1,17 @@
+.SearchBar--input {
+  height: 2em;
+  width: 20em;
+  font-size: 1em;
+  padding: 1.5px 5px;
+}
+
+.SearchBar--button {
+  height: 2.5em;
+  font-size: 1em;
+  padding: 1.5px 5px;
+  margin-left: 20px;
+}
+
+.SearchBar--button:hover {
+  font-weight: bold;
+}

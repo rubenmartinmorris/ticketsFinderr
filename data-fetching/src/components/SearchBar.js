@@ -1,13 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
+import './SearchBar.css';
 
 const SearchBar = ({ setSearchTerm }) => {
-  const [search, setSearchState] = useState("");
+  const [search, setSearchState] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchTerm(search);
 
-    setSearchState("");
+    setSearchState('');
   };
   const handleChange = (event) => {
     const { value } = event.target;
@@ -15,9 +16,14 @@ const SearchBar = ({ setSearchTerm }) => {
     setSearchState(value);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} value={search} />
-      <button>Search</button>
+    <form className='SearchBar--form' onSubmit={handleSubmit}>
+      <input
+        className='SearchBar--input'
+        type='text'
+        onChange={handleChange}
+        value={search}
+      />
+      <button className='SearchBar--button'>Find My Tickets!</button>
     </form>
   );
 };
