@@ -2,6 +2,7 @@
 
 #key
 key.js
+SECRETS.js
 # dependencies
 /node_modules
 /.pnp
