@@ -8,6 +8,7 @@ const EventList = ({ searchTerm }) => {
 
   useEffect(() => {
     fetch(
+      //add fetch to node server
       `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=GB&keyword=${searchTerm}`
     )
       .then((response) => {
