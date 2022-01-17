@@ -26,9 +26,6 @@ export default function Map({ eventListItems }) {
         defaultZoom={defaultProps.zoom}
       >
         {eventListItems.map((item) => {
-          //console.log('------>', item._embedded.venues[0].location.latitude);
-          //console.log('------>', item._embedded.venues[0].location.longitude);
-
           return (
             <AnyReactComponent
               lat={item._embedded.venues[0].location.latitude}
